@@ -1,4 +1,4 @@
-# Script Beskrivningar
+# Script Beskrivningar av Studiegrupp 4.
 
 ## n-scan.py
 Detta Python-skript (`n-scan.py`) är ett enkelt verktyg för att skanna ens lokala nätverk efter SSH portar och sen köra en säkerhets scanning på den porten som hittas.
