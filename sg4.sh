@@ -73,7 +73,7 @@ add_ssh_user() {
         echo "$user_lowercase:$password" | chpasswd
 
         # Lägg till användare till 'SysAdmin' grupp.
-        echo "Lägger till user_lowercase i grupp SysAdmin"
+        echo "Lägger till $user_lowercase i grupp SysAdmin"
         usermod -aG SysAdmin $user_lowercase
 
         # Skriv ut det genererade lösenordet för användaren.
