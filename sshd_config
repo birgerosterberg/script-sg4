@@ -1,0 +1,41 @@
+Port 33556
+
+KbdInteractiveAuthentication no
+
+LogLevel VERBOSE
+
+LoginGraceTime 2m
+
+PermitRootLogin no
+
+StrictModes yes
+
+MaxAuthTries 3
+
+MaxSessions 4
+
+AuthorizedKeysFile .ssh/authorized_keys
+
+PasswordAuthentication yes
+
+PermitEmptyPasswords no
+
+ClientAliveInterval 180
+
+AllowTcpForwarding no
+
+MaxStartups 20
+
+PerSourceMaxStartups 5
+
+X11Forwarding no
+
+Protocol 2
+
+Banner /etc/ssh/banner.txt
+
+AllowGroups SysAdmin
+
+PermitUserEnvironment no
+
+UsePAM yes
