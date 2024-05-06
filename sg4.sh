@@ -61,27 +61,26 @@ sshd_config() {
 
 add_ssh_user() {
     clear
-        echo "Skriv in användarnamn:"
-        read user
-        echo "Skriv in email:"
-        read email
+        read -p "Ange användarnamn: " user
+        user_lowercase=$(echo "$user" | tr '[:upper:]' '[:lower:]')
+        read -p "Skriv in email:" email
 
         # Generera random lösenord
         password=$(openssl rand -base64 16)
 
         # Lägg till användare med specifikt användarnamn och email, samt lägg till random lösenord
-        adduser $user --gecos "$email" --disabled-password
-        echo "$user:$password" | chpasswd
+        adduser $user_lowercase --gecos "$email" --disabled-password
+        echo "$user_lowercase:$password" | chpasswd
 
         # Lägg till användare till 'SysAdmin' grupp.
-        echo "Lägger till $user i grupp SysAdmin"
-        usermod -aG SysAdmin $user
+        echo "Lägger till user_lowercase i grupp SysAdmin"
+        usermod -aG SysAdmin $user_lowercase
 
         # Skriv ut det genererade lösenordet för användaren.
-        echo "Användare: $user"
+        echo "Användare: $user_lowercase"
         echo "Email: $email"
         echo "Lösenord: $password"
-        echo "Användare $user färdig."
+        echo "Användare $user_lowercase färdig."
         # Tillbaka till menyn
         menu
 }
